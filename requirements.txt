@@ -1,0 +1,3 @@
+Flask
+gunicorn
+# Adicione outras dependências se seus módulos precisarem (ex: pandas, requests)
