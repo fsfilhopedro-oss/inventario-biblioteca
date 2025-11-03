@@ -8,10 +8,18 @@
         body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
         .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         h1 { color: #333; text-align: center; }
-        p { text-align: center; color: #666; }
+        p.main-description { text-align: center; color: #666; }
         .file-group { margin-bottom: 20px; padding: 10px; border: 1px dashed #ccc; border-radius: 4px;}
         label { display: block; margin-bottom: 5px; font-weight: bold; }
         input[type="file"] { width: 100%; padding: 8px; box-sizing: border-box; }
+        .help-text { 
+            font-size: 0.85em; 
+            color: #888; 
+            margin-top: 5px; 
+            margin-bottom: 5px;
+            display: block;
+        }
+        
         button { 
             display: block; width: 100%; padding: 10px; background-color: #007BFF; 
             color: white; border: none; border-radius: 4px; cursor: pointer; 
@@ -22,26 +30,28 @@
 </head>
 <body>
     <div class="container">
-        <h1>Sistema de Processamento de Inventário</h1>
-        <p>Faça o upload dos arquivos de dados para iniciar a comparação e gerar os relatórios de erros.</p>
+        <h1>Sistema de Inventário - Biblioteca IPEN</h1>
+        <p>Faça o upload dos arquivos de dados para iniciar a comparação e gerar os relatórios.</p>
         
         <form method="POST" action="/processar" enctype="multipart/form-data">
             
             <div class="file-group">
-                <label for="mst_file">Arquivo de Inventário Mestre (Ex: <code>mst.seq</code>):</label>
+                <label for="mst_file">Arquivo de Inventário PHL (<code>mst.seq</code>):</label>
+                <span class="help-text">Em Relatórios Personalizados busque por: IPEN - IPEN - Dados Inventário ...</span>
                 <input type="file" id="mst_file" name="mst_file" accept=".seq,.txt" required>
             </div>
 
             <div class="file-group">
-                <label for="tombo_file">Arquivo de Tombos Lidos (Ex: <code>tombo.txt</code>):</label>
+                <label for="tombo_file">Arquivo de Tombos Lidos (<code>tombo.txt</code>):</label>
+                <span class="help-text">Antes de adicioná-lo, limpe o arquivo .txt de possíveis sujeiras advindas da leitura.</span>
                 <input type="file" id="tombo_file" name="tombo_file" accept=".txt" required>
             </div>
 
-            <button type="submit">Processar e Baixar Relatórios (.zip)</button>
+            <button type="submit">Processar e Baixar Relatórios</button>
         </form>
         
         <footer>
-            <p style="margin-top: 30px; font-size: 0.9em;">Projeto de Inventário - Desenvolvido em Python/Flask.</p>
+            <p style="margin-top: 30px; font-size: 0.9em;">Projeto de Inventário - Desenvolvido pela Biblioteca do IPEN em Python/Flask.</p>
         </footer>
     </div>
 </body>
