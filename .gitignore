@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# Flask/Gunicorn
+/uploads/
+/reports/
+.env
+
+# MacOS
+.DS_Store
